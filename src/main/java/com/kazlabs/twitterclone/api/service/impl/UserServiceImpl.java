@@ -1,5 +1,6 @@
 package com.kazlabs.twitterclone.api.service.impl;
 
+import com.kazlabs.twitterclone.api.entity.User;
 import com.kazlabs.twitterclone.api.repository.UserRepository;
 import com.kazlabs.twitterclone.api.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -21,5 +22,10 @@ public class UserServiceImpl implements UserService {
                         .orElseThrow(() -> new UsernameNotFoundException("User not found"));
             }
         };
+    }
+
+    public User getUserByUsername(String username) {
+        return userRepository.findByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
     }
 }
