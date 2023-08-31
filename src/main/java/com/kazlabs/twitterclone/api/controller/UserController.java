@@ -31,10 +31,6 @@ public class UserController {
         }
     }
 
-//    @PostMapping("/")
-//    public User createUser(@RequestBody User user) {
-//        return userRepository.save(user);
-//    }
 
     @PutMapping("/{id}")
     public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User userRequest) {
@@ -55,4 +51,6 @@ public class UserController {
             return ResponseEntity.ok().build();
         }).orElse(ResponseEntity.notFound().build());
     }
+
+
 }
